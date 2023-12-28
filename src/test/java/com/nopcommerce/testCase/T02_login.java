@@ -8,7 +8,7 @@ import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
-public class T01_login extends BaseTest {
+public class T02_login extends BaseTest {
     P02_Login loginPage = new P02_Login(driver);
     SoftAssert softAssert = new SoftAssert();
 
