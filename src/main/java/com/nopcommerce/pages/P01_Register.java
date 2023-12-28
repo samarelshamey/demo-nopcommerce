@@ -2,7 +2,6 @@ package com.nopcommerce.pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
 public class P01_Register {
@@ -15,7 +14,7 @@ public class P01_Register {
     By firstNameField = By.xpath("//input[@data-val-required=\"First name is required.\"]");
     By lastNameField = By.xpath("//input[@data-val-required=\"Last name is required.\"]");
     By emailField = By.xpath("//input[@data-val-required=\"Email is required.\"]");
-    By passwordFielf = By.xpath("//input[@id=\"Password\"]");
+    By passwordField = By.xpath("//input[@id=\"Password\"]");
     By repassField = By.xpath("//input[@id=\"ConfirmPassword\"]");
     By registerSubmitButton = By.xpath("//button[@name=\"register-button\"]");
     public void clickOnRegisterButton() {
@@ -31,19 +30,19 @@ public class P01_Register {
         driver.findElement(lastNameField).sendKeys(lName);
     }
 
-    public void SelectBirthDate (int day, int month, int year) {
+    public void SelectBirthDate (String day, String month, String year) {
         Select dropDownDay = new Select(driver.findElement(By.xpath("//select[@name=\"DateOfBirthDay\"]")));
-        dropDownDay.selectByValue("day");
+        dropDownDay.selectByValue(day);
         Select dropDownMonth = new Select(driver.findElement(By.xpath("//select[@name=\"DateOfBirthMonth\"]")));
-        dropDownMonth.selectByValue("month");
+        dropDownMonth.selectByValue(month);
         Select dropDownYear = new Select(driver.findElement(By.xpath("//select[@name=\"DateOfBirthYear\"]")));
-        dropDownYear.selectByValue("year");
+        dropDownYear.selectByValue(year);
     }
     public void enterValidEmail(String email){
         driver.findElement(emailField).sendKeys(email);
     }
     public void enterValidPass (String pass) {
-        driver.findElement(passwordFielf).sendKeys(pass);
+        driver.findElement(passwordField).sendKeys(pass);
     }
     public void reEnterValidPass (String pass) {
         driver.findElement(repassField).sendKeys(pass);

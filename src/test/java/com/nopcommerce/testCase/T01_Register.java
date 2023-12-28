@@ -29,7 +29,7 @@ public class T01_Register extends BaseTest {
         registerPage.chooseGender();
         registerPage.enterFirstName(getProperty("firstName"));
         registerPage.enterLastName(getProperty("lastName"));
-        registerPage.SelectBirthDate(26, 12, 1990);
+        registerPage.SelectBirthDate("26", "12", "1990");
         registerPage.enterValidEmail("smsmelshamey@gmail.com");
         registerPage.enterValidPass("123456");
         registerPage.reEnterValidPass("123456");
