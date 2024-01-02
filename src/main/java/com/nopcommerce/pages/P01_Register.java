@@ -1,22 +1,21 @@
 package com.nopcommerce.pages;
 
+import com.nopcommerce.config.BaseConfig;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.Select;
 
-public class P01_Register {
-    WebDriver driver;
-    public P01_Register (WebDriver driver){
-        this.driver = driver;
-    }
+public class P01_Register extends BaseConfig {
+
     By registerButton = By.xpath("//a[@class=\"ico-register\"]");
-    By femaleGenderButton = By.xpath("type=\"radio\"");
+    By femaleGenderButton = By.xpath("//input[@value=\"F\"]");
     By firstNameField = By.xpath("//input[@data-val-required=\"First name is required.\"]");
     By lastNameField = By.xpath("//input[@data-val-required=\"Last name is required.\"]");
     By emailField = By.xpath("//input[@data-val-required=\"Email is required.\"]");
     By passwordField = By.xpath("//input[@id=\"Password\"]");
     By repassField = By.xpath("//input[@id=\"ConfirmPassword\"]");
     By registerSubmitButton = By.xpath("//button[@name=\"register-button\"]");
+    By successMessageText = By.xpath("//div[@class=\"page-body\"]");
     public void clickOnRegisterButton() {
         driver.findElement(registerButton).click();
     }
@@ -52,6 +51,15 @@ public class P01_Register {
     }
 
 
+
+    public String successMessage(){
+        String successMsg = driver.findElement(successMessageText).getText();
+        System.out.println(successMsg);
+        return successMsg;
+    }
+    public String successMessageColor() {
+        return driver.findElement(successMessageText).getCssValue("color");
+    }
 
 
 

@@ -8,38 +8,40 @@ import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
+import static com.nopcommerce.utilities.PropertyFileReader.getProperty;
+
 public class T02_login extends BaseTest {
-    P02_Login loginPage = new P02_Login(driver);
+    P02_Login loginPage = new P02_Login();
     SoftAssert softAssert = new SoftAssert();
 
     @Test
     public void loginWithValidData() {
         String methodName = new Exception().getStackTrace()[0].getMethodName();
-        test = extent.createTest(methodName, "Your Test Case");
+        test = extent.createTest(methodName, "Login with Valid Data");
         test.log(Status.INFO, "starting");
-        test.assignCategory("P0");
+        test.assignCategory("Login");
+
         loginPage.clickOnLogin();
-        loginPage.enterEmail("smsmelshamey@gmail.com");
-        loginPage.enterPassword("123456");
+        loginPage.enterEmail(getProperty("email"));
+        loginPage.enterPassword(getProperty("password"));
         loginPage.clickOnLoginButton();
-        String myaccount = driver.findElement(By.xpath("//a[@class=\"ico-account\"]")).getText();
-        softAssert.assertEquals(myaccount, "MY ACCOUNT");
+        softAssert.assertEquals(loginPage.verifyMyaccount(), getProperty("myAccountText"));
+        softAssert.assertEquals(loginPage.verifyLogOutText(), getProperty("logOutText"));
     }
 
     @Test
     public void loginWithInvalidData () {
         String methodName = new Exception().getStackTrace()[0].getMethodName();
-        test = extent.createTest(methodName, "Your Test Case");
+        test = extent.createTest(methodName, "Login With Invalid Data");
         test.log(Status.INFO, "starting");
-        test.assignCategory("P0");
+        test.assignCategory("Login");
+
         loginPage.clickOnLogin();
-        loginPage.enterEmail("smsm_elshamey.gmail");
-        loginPage.enterPassword("kaljaskdhahdga");
+        loginPage.enterEmail(getProperty("wrongEmail"));
+        loginPage.enterPassword("wrongPass");
         loginPage.clickOnLoginButton();
-        WebElement errorMessage = driver.findElement(By.xpath("//div[@class=\"message-error validation-summary-errors\"]"));
-        softAssert.assertTrue(errorMessage.getText().contains("Login was unsuccessful"));
-        String errorMessageColor = errorMessage.getCssValue("color");
-        softAssert.assertEquals(errorMessageColor, " #e4434b");
+        softAssert.assertTrue(loginPage.errorMessageText().contains(getProperty("errorMsg")));
+        softAssert.assertEquals(loginPage.errorMessageColor(), getProperty("errorMsgColor"));
 
         softAssert.assertAll();
 

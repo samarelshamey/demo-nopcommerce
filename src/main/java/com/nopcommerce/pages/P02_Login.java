@@ -1,17 +1,17 @@
 package com.nopcommerce.pages;
 
+import com.nopcommerce.config.BaseConfig;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 
-public class P02_Login {
-    WebDriver driver;
-    public  P02_Login (WebDriver driver){
-        this.driver = driver;
-    }
+public class P02_Login extends BaseConfig {
+
     By login = By.xpath("//a[@class=\"ico-login\"]");
     By emailField = By.xpath("//input[@class=\"email\"]");
     By passwordField = By.xpath("//input[@class=\"password\"]");
     By loginButton = By.xpath("(//button[@type=\"submit\"])[2]");
+    By myAccount = By.xpath("//a[@class=\"ico-account\"]");
+    By logOutText = By.xpath("//a[@href=\"/logout\"]");
+    By errorMessage = By.xpath("//div[@class=\"message-error validation-summary-errors\"]");
 
     public void clickOnLogin () {
         driver.findElement(login).click();
@@ -25,6 +25,18 @@ public class P02_Login {
     }
     public void clickOnLoginButton () {
         driver.findElement(loginButton).click();
+    }
+    public String verifyMyaccount() {
+        return driver.findElement(myAccount).getText();
+    }
+    public String verifyLogOutText () {
+        return driver.findElement(logOutText).getText();
+    }
+    public String errorMessageText () {
+        return driver.findElement(errorMessage).getText();
+    }
+    public String errorMessageColor() {
+        return driver.findElement(errorMessage).getCssValue("color");
     }
 
 }
