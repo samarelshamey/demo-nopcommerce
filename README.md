@@ -1,5 +1,5 @@
-# nopCommerce demo Website Automation Testing
-•	This project contains automated tests for the login, registration, search, and wishlist pages of an e-commerce website. 
+# nopCommerce Website Automation Testing
+•	This project contains automated tests for the login, registration, search, wishlist and Cart pages of a demo NopCommerce website. 
 •	The tests are implemented using the Page Object Model (POM) design pattern, 
 •	[Selenium WebDriver](https://www.selenium.dev/documentation/en/webdriver/), and [Java](https://www.java.com/).
 
