@@ -3,14 +3,12 @@ package com.nopcommerce.testCase;
 import com.aventstack.extentreports.Status;
 import com.nopcommerce.base.BaseTest;
 import com.nopcommerce.pages.P02_Login;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
 import static com.nopcommerce.utilities.PropertyFileReader.getProperty;
 
-public class T02_login extends BaseTest {
+public class T02_Login extends BaseTest {
     P02_Login loginPage = new P02_Login();
     SoftAssert softAssert = new SoftAssert();
 
