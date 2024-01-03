@@ -30,18 +30,17 @@ The test classes are located in the `src/test/java/com.nopcommerce/TestCase` dir
   - `T03_Search`: Contains tests for the search functionality.
   - `T04_Wishlist`: Contains tests for the Wishlist functionality.
   - `T05_Cart`: Contains tests for the cart functionality.
-
 Each test class contains multiple test methods, each representing a specific test scenario. 
 The test methods interact with the respective page classes to perform actions and assertions.
 
 The page classes are located in the `src/main/java/com.nopcommerce/pages` directory:
-• These classes encapsulate the page-specific elements and operations.
 • The pages are as follows:
   -`P01_Register`: Contains the elements and methods related to the registration page.
   -`P02_Login` : Contains the elements and methods related to the login page.
   -`P03_Search` : Contains the elements and methods related to the search function.
   -`P04_Wishlist` : Contains the elements and methods related to the wishlist.
   -`P05_Cart` : Contains the elements and methods related to the cart.
+Each page class encapsulate the page-specific elements and operations.
 
 ## Test Reports
 
