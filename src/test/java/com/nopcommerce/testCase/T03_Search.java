@@ -3,13 +3,10 @@ package com.nopcommerce.testCase;
 import com.aventstack.extentreports.Status;
 import com.nopcommerce.base.BaseTest;
 import com.nopcommerce.pages.P03_Search;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
-import java.time.Duration;
 
 import static com.nopcommerce.utilities.PropertyFileReader.getProperty;
 
