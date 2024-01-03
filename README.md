@@ -23,7 +23,7 @@ git clone https://github.com/samarelshamey/demo-nopcommerce.git
 The tests are organized using the Page Object Model (POM) design pattern, 
 which separates the test logic from the page-specific operations. 
 
-The test classes are located in the `src/test/java/com.nopcommerce/TestCase` directory:
+The test classes are located in the `src/test/java/com.nopcommerce/testCase` directory:
 • The test classes are as follows:
   - `T01_Register`: Contains tests for the registration functionality.
   - `T02_Login`: Contains tests for the login functionality.
