@@ -12,7 +12,7 @@ public class P02_Login extends BaseConfig {
     By emailField = By.xpath("//input[@class=\"email\"]");
     By passwordField = By.xpath("//input[@class=\"password\"]");
     By loginButton = By.xpath("(//button[@type=\"submit\"])[2]");
-    By myAccount = By.xpath("//a[@class=\"ico-account\"]");
+    By myAccount = By.xpath("/html/body/div[6]/div[1]/div[1]/div[2]/div[1]/ul/li[1]/a");
     By logOutText = By.xpath("//a[@href=\"/logout\"]");
     By errorMessage = By.xpath("/html/body/div[6]/div[3]/div/div/div/div[2]/div[1]/div[2]/form/div[1]");
 
