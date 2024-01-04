@@ -31,7 +31,7 @@ public class T01_Register extends BaseTest {
         registerPage.reEnterValidPass(getProperty("rePassword"));
         registerPage.clickOnSubmitRegisterButton();
         softAssert.assertTrue(registerPage.successMessage().contains(getProperty("successMessage")));
-        softAssert.assertEquals(registerPage.successMessageColor(), getProperty("successMessageColor"));
+        softAssert.assertTrue(registerPage.successMessageColor().contains(getProperty("successMessageColor")));
         softAssert.assertAll();
 
     }

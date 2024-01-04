@@ -3,6 +3,7 @@ package com.nopcommerce.pages;
 import com.nopcommerce.config.BaseConfig;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.Color;
 import org.openqa.selenium.support.ui.Select;
 
 public class P01_Register extends BaseConfig {
@@ -15,7 +16,7 @@ public class P01_Register extends BaseConfig {
     By passwordField = By.xpath("//input[@id=\"Password\"]");
     By repassField = By.xpath("//input[@id=\"ConfirmPassword\"]");
     By registerSubmitButton = By.xpath("//button[@name=\"register-button\"]");
-    By successMessageText = By.xpath("//div[@class=\"page-body\"]");
+    By successMessageText = By.xpath("//div[@class=\"result\"]");
     public void clickOnRegisterButton() {
         driver.findElement(registerButton).click();
     }
@@ -58,7 +59,8 @@ public class P01_Register extends BaseConfig {
         return successMsg;
     }
     public String successMessageColor() {
-        return driver.findElement(successMessageText).getCssValue("color");
+        String color = driver.findElement(successMessageText).getCssValue("color");
+        return Color.fromString(color).asHex();
     }
 
 

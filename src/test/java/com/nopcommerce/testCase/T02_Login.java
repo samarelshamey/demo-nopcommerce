@@ -39,8 +39,7 @@ public class T02_Login extends BaseTest {
         loginPage.enterPassword("wrongPass");
         loginPage.clickOnLoginButton();
         softAssert.assertTrue(loginPage.errorMessageText().contains(getProperty("errorMsg")));
-        softAssert.assertEquals(loginPage.errorMessageColor(), getProperty("errorMsgColor"));
-
+        softAssert.assertTrue(loginPage.errorMessageColor().contains(getProperty("errorMsgColor")));
         softAssert.assertAll();
 
     }

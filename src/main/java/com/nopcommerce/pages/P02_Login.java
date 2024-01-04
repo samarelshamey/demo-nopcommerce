@@ -2,6 +2,9 @@ package com.nopcommerce.pages;
 
 import com.nopcommerce.config.BaseConfig;
 import org.openqa.selenium.By;
+import org.openqa.selenium.support.Color;
+
+import java.awt.*;
 
 public class P02_Login extends BaseConfig {
 
@@ -11,7 +14,7 @@ public class P02_Login extends BaseConfig {
     By loginButton = By.xpath("(//button[@type=\"submit\"])[2]");
     By myAccount = By.xpath("//a[@class=\"ico-account\"]");
     By logOutText = By.xpath("//a[@href=\"/logout\"]");
-    By errorMessage = By.xpath("//div[@class=\"message-error validation-summary-errors\"]");
+    By errorMessage = By.xpath("/html/body/div[6]/div[3]/div/div/div/div[2]/div[1]/div[2]/form/div[1]");
 
     public void clickOnLogin () {
         driver.findElement(login).click();
@@ -36,7 +39,9 @@ public class P02_Login extends BaseConfig {
         return driver.findElement(errorMessage).getText();
     }
     public String errorMessageColor() {
-        return driver.findElement(errorMessage).getCssValue("color");
+        String color = driver.findElement(errorMessage).getCssValue("color");
+        return Color.fromString(color).asHex();
+
     }
 
 }
