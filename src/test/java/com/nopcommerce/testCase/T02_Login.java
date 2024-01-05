@@ -12,7 +12,7 @@ public class T02_Login extends BaseTest {
     P02_Login loginPage = new P02_Login();
     SoftAssert softAssert = new SoftAssert();
 
-    @Test
+    @Test(priority = 2)
     public void loginWithValidData() {
         String methodName = new Exception().getStackTrace()[0].getMethodName();
         test = extent.createTest(methodName, "Login with Valid Data");
@@ -27,7 +27,7 @@ public class T02_Login extends BaseTest {
         softAssert.assertEquals(loginPage.verifyLogOutText(), getProperty("logOutText"));
     }
 
-    @Test
+    @Test(priority = 1)
     public void loginWithInvalidData () {
         String methodName = new Exception().getStackTrace()[0].getMethodName();
         test = extent.createTest(methodName, "Login With Invalid Data");

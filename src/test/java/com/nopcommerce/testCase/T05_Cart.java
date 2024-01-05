@@ -24,5 +24,19 @@ public class T05_Cart extends BaseTest {
         Assert.assertTrue(cart.verifyBackgroundColor().contains(getProperty("cartMsgBackgroundColor")));
         cart.clickOnXButton();
         Assert.assertEquals(cart.verifyWishListIncrease(), "(2)");
+        cart.hoverOverShoppingCart();
+        cart.clickOnGoToCartButton();
+        cart.clickOnTermsAgreementMark();
+        cart.clickOnCheckOutButton();
+        cart.clickOnCheckOutAsGuestButton();
+        cart.fillValidBillingAddress(getProperty("firstName"), getProperty("lastName"), getProperty("email"),
+                getProperty("countryValue"), getProperty("city"), getProperty("address1"), getProperty("postalCode"),
+                getProperty("phoneNumber"));
+        cart.chooseShippingMethod();
+        cart.choosePaymentMethod();
+        cart.paymentConfirmationMethod(getProperty("cardHolderName"), getProperty("cardNumber"),
+                getProperty("expiryMonth"), getProperty("expiryYear"), getProperty("cardCode"));
+        cart.confirmOrderMethod();
+        Assert.assertTrue(cart.confirmationMsg().contains(getProperty("orderConfirmationMsg")));
     }
 }

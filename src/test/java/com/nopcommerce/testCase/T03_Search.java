@@ -14,7 +14,7 @@ public class T03_Search extends BaseTest {
     P03_Search searchPage = new P03_Search();
     SoftAssert softAssert = new SoftAssert();
 
-    @Test
+    @Test(priority = 2)
     public void SearchWithValidData() {
         String methodName = new Exception().getStackTrace()[0].getMethodName();
         test = extent.createTest(methodName, "search with valid data");
@@ -30,7 +30,7 @@ public class T03_Search extends BaseTest {
         Assert.assertTrue(searchPage.verifySearchResult(getProperty("searchWord2")));
         Assert.assertFalse(searchPage.verifySearchResult(getProperty("searchWord1")));
     }
-    @Test
+    @Test(priority = 1)
     public void ViewSuggestionFromSearchWithValidData(){
         String methodName = new Exception().getStackTrace()[0].getMethodName();
         test = extent.createTest(methodName, ": View Suggestion from Search With Valid data");
